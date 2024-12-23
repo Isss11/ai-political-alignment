@@ -1,5 +1,9 @@
 const NavBar = () => {
-    return <nav><h2>Canada Political Test</h2></nav>
-}
+  return (
+    <nav>
+      <h2>Canada Political Test</h2>
+    </nav>
+  );
+};
 
-export default NavBar
+export default NavBar;

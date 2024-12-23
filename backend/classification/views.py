@@ -6,4 +6,8 @@ from rest_framework.response import Response
 @api_view(['POST'])
 def classify(request):
     if request.method == 'POST':
-        return Response('TEST')
+        data = {
+            'party': 'Liberal'
+        }
+        
+        return Response(data)
