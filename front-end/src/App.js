@@ -3,7 +3,7 @@ import Intro from "./components/Intro";
 import { PrimeReactProvider } from "primereact/api";
 import PoliticalTest from "./components/political-test-form/PoliticalTest";
 import Loading from "./components/Loading";
-import "primereact/resources/themes/vela-blue/theme.css";
+import "primereact/resources/themes/saga-blue/theme.css";
 import { createContext, useState } from "react";
 
 export const LoadingContext = createContext();

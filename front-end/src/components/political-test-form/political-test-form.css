@@ -1,0 +1,8 @@
+.classification-result-container {
+  display: flex;
+}
+
+.small-logo {
+  height: 10%;
+  width: 10%;
+}

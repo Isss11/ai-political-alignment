@@ -1,24 +1,39 @@
-import conservativeLogo from "../../assets/party-logos/conservative.png";
-import liberalLogo from "../../assets/party-logos/liberal.png";
-import ndpLogo from "../../assets/party-logos/ndp.png";
-import greenLogo from "../../assets/party-logos/green.png";
+import { parties } from "../helpers";
+import { Card } from "primereact/card";
+import "./political-test-form.css";
 
 const ClassificationResult = ({ party }) => {
-  const getPoliticalPartyLogo = () => {
-    const logoMappings = {
-      conservative: conservativeLogo,
-      liberal: liberalLogo,
-      ndp: ndpLogo,
-      green: greenLogo,
-    };
+  const getPartyKey = () => {
+    return party.toUpperCase();
+  };
 
-    return logoMappings[party];
+  const getPartyDetails = () => {
+    return parties[getPartyKey()];
+  };
+
+  const getPoliticalPartyLogo = () => {
+    return getPartyDetails().logo;
   };
 
   return party ? (
     <div>
-      You are... {party}
-      <img src={getPoliticalPartyLogo()} alt="Party Logo" />
+      <Card title="Your Results">
+        <div className="classification-result-container">
+          <div>
+            <p>
+              After analyzing what you wrote, you best align with the{" "}
+              <strong>{parties[getPartyKey()].pluralLabel}.</strong>
+            </p>
+            <h3>About the {parties[getPartyKey()].pluralLabel} </h3>
+            <p>{parties[getPartyKey()].description}</p>
+          </div>
+          <img
+            className="small-logo"
+            src={getPoliticalPartyLogo()}
+            alt="Party Logo"
+          />
+        </div>
+      </Card>
     </div>
   ) : null;
 };

@@ -1,5 +1,5 @@
 import { ProgressSpinner } from "primereact/progressspinner";
-import "./index.css";
+import "./loading.css";
 
 const Loading = ({ show }) => {
   return show ? (
