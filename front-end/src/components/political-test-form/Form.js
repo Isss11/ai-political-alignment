@@ -1,15 +1,17 @@
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
+
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { LoadingContext } from "../../App";
 
 const Form = ({ onSubmit }) => {
   const [generalText, setGeneralText] = useState("");
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   const classifyText = (e) => {
     e.preventDefault();
-
-    console.log("Classify text.");
+    setIsLoading(true);
 
     const request = {
       general: generalText,
@@ -19,6 +21,7 @@ const Form = ({ onSubmit }) => {
       const party = response.data[0];
 
       onSubmit(party);
+      setIsLoading(false);
     });
   };
 
@@ -29,9 +32,14 @@ const Form = ({ onSubmit }) => {
         rows={30}
         cols={150}
         value={generalText}
+        disabled={isLoading}
         onChange={(e) => setGeneralText(e.target.value)}
       />
-      <Button label="Compute Results" onClick={classifyText} />
+      <Button
+        label="Compute Results"
+        onClick={classifyText}
+        disabled={isLoading}
+      />
     </form>
   );
 };

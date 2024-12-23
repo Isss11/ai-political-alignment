@@ -1,7 +1,7 @@
 const NavBar = () => {
   return (
     <nav>
-      <h2>Canada Political Test</h2>
+      <h1>CivicMeter</h1>
     </nav>
   );
 };

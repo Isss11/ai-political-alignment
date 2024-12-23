@@ -15,12 +15,12 @@ const ClassificationResult = ({ party }) => {
     return logoMappings[party];
   };
 
-  return (
+  return party ? (
     <div>
       You are... {party}
       <img src={getPoliticalPartyLogo()} alt="Party Logo" />
     </div>
-  );
+  ) : null;
 };
 
 export default ClassificationResult;
