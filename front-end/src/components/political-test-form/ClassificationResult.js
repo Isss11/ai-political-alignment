@@ -6,10 +6,10 @@ import greenLogo from "../../assets/party-logos/green.png";
 const ClassificationResult = ({ party }) => {
   const getPoliticalPartyLogo = () => {
     const logoMappings = {
-      Conservative: conservativeLogo,
-      Liberal: liberalLogo,
-      NDP: ndpLogo,
-      Green: greenLogo,
+      conservative: conservativeLogo,
+      liberal: liberalLogo,
+      ndp: ndpLogo,
+      green: greenLogo,
     };
 
     return logoMappings[party];

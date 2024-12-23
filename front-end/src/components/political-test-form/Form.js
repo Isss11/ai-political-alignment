@@ -3,7 +3,7 @@ import { Button } from "primereact/button";
 import axios from "axios";
 import { useState } from "react";
 
-const Form = () => {
+const Form = ({ onSubmit }) => {
   const [generalText, setGeneralText] = useState("");
 
   const classifyText = (e) => {
@@ -16,7 +16,9 @@ const Form = () => {
     };
 
     axios.post("http://127.0.0.1:8000/classify", request).then((response) => {
-      console.log(response);
+      const party = response.data[0];
+
+      onSubmit(party);
     });
   };
 
