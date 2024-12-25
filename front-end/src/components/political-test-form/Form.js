@@ -50,6 +50,7 @@ const Form = ({ onSubmit }) => {
   return (
     <form>
       <InputTextarea
+        id="political-text-area"
         placeholder={FORM_PLACEHOLDER_TEXT}
         rows={20}
         cols={150}

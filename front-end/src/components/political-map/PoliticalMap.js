@@ -1,5 +1,5 @@
 const PoliticalMap = () => {
-  return <div>Placeholder for political map.</div>;
+  return <div>Political map coming soon...</div>;
 };
 
 export default PoliticalMap;

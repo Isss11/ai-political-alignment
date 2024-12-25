@@ -1,5 +1,5 @@
 const PollingGraph = () => {
-  return <div>Polling map placeholder here.</div>;
+  return <div>Polling map coming soon.</div>;
 };
 
 export default PollingGraph;
