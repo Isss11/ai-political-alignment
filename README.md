@@ -17,3 +17,11 @@ pip install django djangorestframework django-cors-headers
 ```
 pip install pypdf
 ```
+
+```
+docker compose up
+```
+
+```
+docker compose up --rmi all
+```

@@ -30,7 +30,7 @@ const Form = ({ onSubmit }) => {
     };
 
     axios
-      .post("http://127.0.0.1:8000/classify", request)
+      .post("http://172.18.0.3:8000/classify", request)
       .then((response) => {
         const party = response.data[0];
 
