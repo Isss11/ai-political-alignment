@@ -6,3 +6,8 @@
   height: 10%;
   width: 10%;
 }
+
+#political-text-area {
+  margin-top: 1rem;
+  width: 100%;
+}
