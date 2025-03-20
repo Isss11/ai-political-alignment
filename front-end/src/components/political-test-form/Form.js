@@ -53,7 +53,6 @@ const Form = ({ onSubmit }) => {
         id="political-text-area"
         placeholder={FORM_PLACEHOLDER_TEXT}
         rows={20}
-        cols={150}
         value={generalText}
         disabled={isLoading}
         onChange={(e) => setGeneralText(e.target.value)}
