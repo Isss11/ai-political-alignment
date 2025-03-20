@@ -1,4 +1,5 @@
-env
+.env
 *.pyc
 db.sqlite3
 node_modules
+model-weights/svc_model_pipeline.joblib
