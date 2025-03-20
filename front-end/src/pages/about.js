@@ -1,3 +1,6 @@
+import isaiahSinclairRunning from "../assets/isaiah-sinclair-barrie-half-marathon.jpg";
+import "./about.css";
+
 const About = () => {
   return (
     <div>
@@ -10,14 +13,6 @@ const About = () => {
         techniques. It was originally created as a personal project by Isaiah
         Sinclair to learn more about artificial intelligence, machine learning
         and natural language processing.
-      </p>
-      <h3>Isaiah Sinclair</h3>
-      <p>
-        Isaiah is a undergraduate Computer Science student at the Unviersity of
-        Guelph, minoring in Economics. He has had a passion for politics since
-        the 2011 Canadian election, when he was only eight years old! You can
-        learn more about his work at{" "}
-        <a href="https://isaiahsinclair.ca/">isaiahsinclair.ca.</a>
       </p>
       <h2>About Maple Vote's Methodology</h2>
       <p>
@@ -38,6 +33,21 @@ const About = () => {
         leveraging a more advanced machine learning technique that considers the
         semantics of text would be optimal, such as transformers.
       </p>
+      <h3>Isaiah Sinclair</h3>
+      <div>
+        <p>
+          Isaiah is a undergraduate Computer Science student at the Unviersity
+          of Guelph, minoring in Economics. He has had a passion for politics
+          since the 2011 Canadian election, when he was only eight years old!
+          You can learn more about his work at{" "}
+          <a href="https://isaiahsinclair.ca/">isaiahsinclair.ca.</a>
+        </p>
+        <img
+          id="isaiah-sinclair-running-image"
+          src={isaiahSinclairRunning}
+          alt="Isaiah Sinclair running the Barrie Half Marathon in 2024"
+        ></img>
+      </div>
     </div>
   );
 };

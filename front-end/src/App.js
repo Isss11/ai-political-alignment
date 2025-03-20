@@ -19,10 +19,12 @@ function App() {
           <div className="App">
             <Loading show={isLoading} />
             <NavBar />
-            <Routes>
-              <Route exact path="/" element={<Main />} />
-              <Route path="/about" element={<About />} />
-            </Routes>
+            <div className="content">
+              <Routes>
+                <Route exact path="/" element={<Main />} />
+                <Route path="/about" element={<About />} />
+              </Routes>
+            </div>
           </div>
         </LoadingContext.Provider>
       </PrimeReactProvider>
