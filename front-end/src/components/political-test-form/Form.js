@@ -34,6 +34,8 @@ const Form = ({ onSubmit }) => {
       .then((response) => {
         const party = response.data[0];
 
+        console.log("here is the party", party);
+
         onSubmit(party);
         setIsLoading(false);
       })
