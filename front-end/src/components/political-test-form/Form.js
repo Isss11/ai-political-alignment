@@ -5,9 +5,10 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import { LoadingContext } from "../../App";
 import { FORM_PLACEHOLDER_TEXT, WORD_MINIMUM } from "../helpers";
+import "./political-test-form.css";
 
 const Form = ({ onSubmit }) => {
-  const [generalText, setGeneralText] = useState("");
+  const [text, setText] = useState("");
   const [wordCount, setWordCount] = useState(0);
   const { isLoading, setIsLoading } = useContext(LoadingContext);
   const [errorMessage, setErrorMessage] = useState("");
@@ -26,13 +27,15 @@ const Form = ({ onSubmit }) => {
     setIsLoading(true);
 
     const request = {
-      general: generalText,
+      text: text,
     };
 
+    const url = `${process.env.REACT_APP_BACK_END_URL}:${process.env.REACT_APP_BACK_END_PORT}/classification`;
+
     axios
-      .post("http://127.0.0.1:8000/classify", request)
+      .post(url, request)
       .then((response) => {
-        const party = response.data[0];
+        const party = response.data;
 
         onSubmit(party);
         setIsLoading(false);
@@ -44,26 +47,29 @@ const Form = ({ onSubmit }) => {
 
   useEffect(() => {
     setErrorMessage("");
-    setWordCount(generalText ? generalText.split(" ").length : 0);
-  }, [generalText, setErrorMessage]);
+    setWordCount(text ? text.split(" ").length : 0);
+  }, [text, setErrorMessage]);
 
   return (
     <form>
+      <div id="submission-bar">
+        <div>Word Count: {wordCount}</div>
+        <Button
+          id="classify-button"
+          label="Classify"
+          onClick={classifyText}
+          disabled={isLoading}
+        />
+        {errorMessage && <Message text={errorMessage} severity="error" />}
+      </div>
       <InputTextarea
         id="political-text-area"
         placeholder={FORM_PLACEHOLDER_TEXT}
         rows={20}
-        value={generalText}
+        value={text}
         disabled={isLoading}
-        onChange={(e) => setGeneralText(e.target.value)}
+        onChange={(e) => setText(e.target.value)}
       />
-      <div>Word Count: {wordCount}</div>
-      <Button
-        label="Compute Results"
-        onClick={classifyText}
-        disabled={isLoading}
-      />
-      {errorMessage && <Message text={errorMessage} severity="error" />}
     </form>
   );
 };

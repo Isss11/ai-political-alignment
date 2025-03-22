@@ -4,5 +4,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('classify', views.classify)
+    path('classification', views.classification)
 ]

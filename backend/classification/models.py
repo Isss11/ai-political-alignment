@@ -1,11 +1,11 @@
 from django.db import models
+import datetime
 
 class Classification(models.Model):
-    name = models.CharField("Name", max_length=240)
-    email = models.EmailField()
-    document = models.CharField("Document", max_length=20)
-    phone = models.CharField(max_length=20)
-    registrationDate = models.DateField("Registration Date", auto_now_add=True)
+    text = models.CharField("Text", max_length=2048, default="No Information Provided")
+    party = models.CharField("Party", max_length=128, default="Liberal")
+    date_created = models.DateField("Date Created", default=datetime.date.today())
+    date_updated = models.DateField("Date Updated", default=datetime.date.today())
 
     def __str__(self):
-        return self.name
+        return self.text

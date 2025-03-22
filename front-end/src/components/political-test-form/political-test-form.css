@@ -8,6 +8,12 @@
 }
 
 #political-text-area {
-  margin-top: 1rem;
   width: 100%;
+}
+
+#submission-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 1rem;
 }

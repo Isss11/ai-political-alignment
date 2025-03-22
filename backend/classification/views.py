@@ -1,16 +1,19 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .utils import classify_text
+from .models import Classification
 import json
+import datetime
 
 # Create your views here.
 @api_view(['POST'])
-def classify(request):
+def classification(request):
     if request.method == 'POST':
         body = json.loads(request.body.decode('utf-8'))
         
-        print(body['general'])
+        party = classify_text(body['text'])
+        classification = Classification.objects.create(text=body['text'], party=party, date_created=datetime.date.today(), date_updated=datetime.date.today())
         
-        party_classification = classify_text(body['general'])
+        print(f"Classification created {classification}.")
         
-        return Response(party_classification)
+        return Response(party)

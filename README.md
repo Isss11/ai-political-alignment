@@ -2,18 +2,6 @@
 
 Using ML techniques to classify Canadian political opinions.
 
-```
-python -m venv env
-```
+## Set-up
 
-```
-env/Scripts/activate.bat
-```
-
-```
-pip install django djangorestframework django-cors-headers
-```
-
-```
-pip install pypdf
-```
+In two separate terminals, run the commands `start-backend` and `start-frontend` to start up the application.

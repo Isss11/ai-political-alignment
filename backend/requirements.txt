@@ -1,0 +1,7 @@
+pypdf
+django
+djangorestframework
+django-cors-headers
+pandas
+joblib
+scikit-learn
