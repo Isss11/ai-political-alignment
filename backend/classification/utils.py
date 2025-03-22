@@ -7,4 +7,4 @@ def classify_text(input_text):
     
     pred = sentences_svm.predict([input_text])
     
-    return pred
+    return pred[0]
