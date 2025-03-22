@@ -27,8 +27,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
-CORS_ORIGIN_ALLOW_ALL = False
-
+# FIXME: Change later for better security
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
