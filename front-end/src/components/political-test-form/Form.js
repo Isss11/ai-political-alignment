@@ -5,6 +5,7 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import { LoadingContext } from "../../App";
 import { FORM_PLACEHOLDER_TEXT, WORD_MINIMUM } from "../helpers";
+import "./political-test-form.css";
 
 const Form = ({ onSubmit }) => {
   const [text, setText] = useState("");
@@ -49,6 +50,16 @@ const Form = ({ onSubmit }) => {
 
   return (
     <form>
+      <div id="submission-bar">
+        <div>Word Count: {wordCount}</div>
+        <Button
+          id="classify-button"
+          label="Classify"
+          onClick={classifyText}
+          disabled={isLoading}
+        />
+        {errorMessage && <Message text={errorMessage} severity="error" />}
+      </div>
       <InputTextarea
         id="political-text-area"
         placeholder={FORM_PLACEHOLDER_TEXT}
@@ -57,9 +68,6 @@ const Form = ({ onSubmit }) => {
         disabled={isLoading}
         onChange={(e) => setText(e.target.value)}
       />
-      <div>Word Count: {wordCount}</div>
-      <Button label="Classify" onClick={classifyText} disabled={isLoading} />
-      {errorMessage && <Message text={errorMessage} severity="error" />}
     </form>
   );
 };
