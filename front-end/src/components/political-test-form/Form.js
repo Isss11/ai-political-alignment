@@ -30,8 +30,10 @@ const Form = ({ onSubmit }) => {
       text: text,
     };
 
+    const url = `${process.env.REACT_APP_BACK_END_URL}:${process.env.REACT_APP_BACK_END_PORT}/classification`;
+
     axios
-      .post("http://127.0.0.1:8000/classification", request)
+      .post(url, request)
       .then((response) => {
         const party = response.data;
 
