@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from .utils import get_secret
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,13 +77,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-db-name"),
+        'USER': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-super-user-name"),
+        'PASSWORD': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-db-password", decrypt=True),
+        'HOST': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-db-endpoint"),
+        'PORT': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-db-port")
     }
 }
 
