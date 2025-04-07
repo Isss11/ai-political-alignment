@@ -5,5 +5,5 @@ django-cors-headers
 pandas
 joblib
 scikit-learn
-psycopg2
+psycopg2-binary
 boto3
