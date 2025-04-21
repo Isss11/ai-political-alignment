@@ -12,10 +12,9 @@ setup-backend: clean
 start-backend: setup-backend
 	$(python) backend/manage.py runserver
 
-# Runs back-end in the background (make sure to kill manually with ps aux to find the PID)
-start-backend-production: setup-backend
-	nohup python backend/manage.py runserver 0.0.0.0:8000 &
+setup-frontend: clean
+	npm install
 
-start-frontend:
+start-frontend: setup-frontend
 	cd front-end && \
 	npm start

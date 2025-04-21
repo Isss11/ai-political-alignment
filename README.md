@@ -8,4 +8,6 @@ In two separate terminals, run the commands `start-backend` and `start-frontend`
 
 ### AWS Set-up
 
-Obtain AWS Credentials to configure AWS.
+Obtain AWS Credentials to configure AWS. You will need to install AWS CLI here:
+
+TODO: https://stackoverflow.com/questions/7367577/django-shell-no-module-named-settings
