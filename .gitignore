@@ -6,3 +6,4 @@ model-weights/svc_model_pipeline.joblib
 nohup.out
 analysis/canadian_political_bert
 analysis/results
+backend/static

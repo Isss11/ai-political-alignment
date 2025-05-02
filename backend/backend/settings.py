@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&psk#na5l=p3q8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'maplevote.us-east-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 # FIXME: Change later for better security
 CORS_ORIGIN_ALLOW_ALL = True
@@ -83,12 +83,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-db-name"),
-        'USER': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-super-user-name"),
-        'PASSWORD': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-db-password", decrypt=True),
-        'HOST': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-db-endpoint"),
-        'PORT': get_secret("arn:aws:ssm:us-east-1:054037099266:parameter/maple-vote-db-port")
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
